@@ -48,7 +48,7 @@ I learned the nice pattern here of capturing into CSV a simple set of figures fo
 
 Personally I think this is a great set of diagnostics to capture. You could quite easily have not included the two averages, but I think they provide a nice context. You could also have not included the calculated delta, but again that's just adding more work to the reader. I like this pattern.
 
-# Origianl Index Content
+# Original Index Content
 
 ---
 
