@@ -6,17 +6,18 @@
 ### Dataset
 For the custom project I used a subset of my [Data Journal](https://datajournal.guide) aggregated to the week. I'm using a slightly more robust version of this same file for my Capstone project also being done through NW Missouri State University. So it was thematic.
 
-Columns:
-- **week** - week the data represents
-- **satisfaction** - average of daily "how good was today on a scale of 10?" ratings
-- **health** - average of daily "how healthy do I feel on a scale of 10" ratings
-- **sleepduration** - weekly average as measured by Oura ring - time asleep
-- **hr** - weekly average as measured by Oura ring - lowest HR overnight
-- **hrv** - weekly average as measured by Oura ring - Heart Rate Variability
-- **readinesss** - score derived by Oura ring, 0 to 100
-- **activity** - score derived by Oura ring, 0 to 100
-- **sleep** - score derived by Oura ring, 0 to 100
-- **activecals** -  - weekly average as measured by Oura ring - all calories burned (estimate)
+**Columns:**
+
+- **week** - week the data represents.
+- **satisfaction** - average of daily "how good was today on a scale of 10?" ratings.
+- **health** - average of daily "how healthy do I feel on a scale of 10" ratings.
+- **sleepduration** - weekly average as measured by Oura ring - time asleep.
+- **hr** - weekly average as measured by Oura ring - lowest HR overnight.
+- **hrv** - weekly average as measured by Oura ring - Heart Rate Variability.
+- **readinesss** - score derived by Oura ring, 0 to 100.
+- **activity** - score derived by Oura ring, 0 to 100.
+- **sleep** - score derived by Oura ring, 0 to 100.
+- **activecals** -  - weekly average as measured by Oura ring - all calories burned (estimate).
 
 ### Signals
 I actually did *not* create an signals with this. The data contained everything I needed directly.
