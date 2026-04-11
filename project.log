@@ -55,3 +55,469 @@
 2026-04-08 21:47:59 | INFO | P5 | Pipeline executed successfully!
 2026-04-08 21:47:59 | INFO | P5 | ========================
 2026-04-08 21:47:59 | INFO | P5 | END main()
+2026-04-10 22:36:43 | INFO | P5 | === RUN START ===
+2026-04-10 22:36:43 | INFO | P5 | project=CINTEL
+2026-04-10 22:36:43 | INFO | P5 | repo_dir=cintel-05-drift-detection
+2026-04-10 22:36:43 | INFO | P5 | python=3.14.3
+2026-04-10 22:36:43 | INFO | P5 | os=Darwin 25.3.0
+2026-04-10 22:36:43 | INFO | P5 | shell=zsh
+2026-04-10 22:36:43 | INFO | P5 | cwd=.
+2026-04-10 22:36:43 | INFO | P5 | github_actions=False
+2026-04-10 22:36:43 | INFO | P5 | ========================
+2026-04-10 22:36:43 | INFO | P5 | START main()
+2026-04-10 22:36:43 | INFO | P5 | ========================
+2026-04-10 22:36:43 | INFO | P5 | ROOT_DIR = .
+2026-04-10 22:36:43 | INFO | P5 | REFERENCE_FILE = data/reference_metrics_gillespie.csv
+2026-04-10 22:36:43 | INFO | P5 | CURRENT_FILE = data/current_metrics_gillespie.csv
+2026-04-10 22:36:43 | INFO | P5 | OUTPUT_FILE = artifacts/drift_summary_gillespie.csv
+2026-04-10 22:36:43 | INFO | P5 | ARTIFACTS_DIR = artifacts
+2026-04-10 22:36:43 | INFO | P5 | Loaded 261 reference records
+2026-04-10 22:36:43 | INFO | P5 | Loaded 65 current records
+2026-04-10 22:36:43 | INFO | P5 | Calculated summary differences and drift flags
+2026-04-10 22:36:43 | INFO | P5 | Wrote drift summary file: /Users/aaron/Documents/Git_Repos/GradSchool/44630/cintel-05-drift-detection/artifacts/drift_summary_gillespie.csv
+2026-04-10 22:36:43 | INFO | P5 | Drift summary dataframe:
+2026-04-10 22:36:43 | INFO | P5 | shape: (1, 32)
+┌────────────────────────────┬──────────────────────┬─────────────────────┬──────────────────┬───┬──────────────────────┬────────────────────────────┬───────────────────────────┬─────────────────────────────┐
+│ reference_avg_satisfaction ┆ reference_avg_health ┆ reference_avg_sleep ┆ reference_avg_hr ┆ … ┆ hrv_is_drifting_flag ┆ readiness_is_drifting_flag ┆ activity_is_drifting_flag ┆ activecals_is_drifting_flag │
+│ ---                        ┆ ---                  ┆ ---                 ┆ ---              ┆   ┆ ---                  ┆ ---                        ┆ ---                       ┆ ---                         │
+│ f64                        ┆ f64                  ┆ f64                 ┆ f64              ┆   ┆ bool                 ┆ bool                       ┆ bool                      ┆ bool                        │
+╞════════════════════════════╪══════════════════════╪═════════════════════╪══════════════════╪═══╪══════════════════════╪════════════════════════════╪═══════════════════════════╪═════════════════════════════╡
+│ 5.921456                   ┆ 8.981226             ┆ 7.864615            ┆ 54.369231        ┆ … ┆ false                ┆ false                      ┆ true                      ┆ false                       │
+└────────────────────────────┴──────────────────────┴─────────────────────┴──────────────────┴───┴──────────────────────┴────────────────────────────┴───────────────────────────┴─────────────────────────────┘
+2026-04-10 22:36:43 | INFO | P5 | Let's make that a bit nicer to read...
+2026-04-10 22:36:43 | INFO | P5 | All remaining steps are about creating a nicer display.
+2026-04-10 22:36:43 | INFO | P5 | ========================
+2026-04-10 22:36:43 | INFO | P5 | Drift Detection Process: 
+2026-04-10 22:36:43 | INFO | P5 | ========================
+2026-04-10 22:36:43 | INFO | P5 | 1. Summarize each period with means.
+2026-04-10 22:36:43 | INFO | P5 | 2. Compute difference of means.
+2026-04-10 22:36:43 | INFO | P5 | 3. Flag drift if absolute difference of means exceeds a threshold.
+2026-04-10 22:36:43 | INFO | P5 | ========================
+2026-04-10 22:36:43 | INFO | P5 | Drift summary (one field per line):
+2026-04-10 22:36:43 | INFO | P5 | reference_avg_satisfaction: 5.921455938697318
+2026-04-10 22:36:43 | INFO | P5 | reference_avg_health: 8.981226053639848
+2026-04-10 22:36:43 | INFO | P5 | reference_avg_sleep: 7.864615384615385
+2026-04-10 22:36:43 | INFO | P5 | reference_avg_hr: 54.36923076923077
+2026-04-10 22:36:43 | INFO | P5 | reference_avg_hrv: 32.542307692307695
+2026-04-10 22:36:43 | INFO | P5 | reference_avg_readiness: 79.57692307692308
+2026-04-10 22:36:43 | INFO | P5 | reference_avg_activity: 76.29615384615384
+2026-04-10 22:36:43 | INFO | P5 | reference_avg_activecals: 3061.1264367816093
+2026-04-10 22:36:43 | INFO | P5 | current_avg_satisfaction: 6.1230769230769235
+2026-04-10 22:36:43 | INFO | P5 | current_avg_health: 9.409230769230767
+2026-04-10 22:36:43 | INFO | P5 | current_avg_sleep: 8.082923076923079
+2026-04-10 22:36:43 | INFO | P5 | current_avg_hr: 53.61538461538461
+2026-04-10 22:36:43 | INFO | P5 | current_avg_hrv: 30.646153846153847
+2026-04-10 22:36:43 | INFO | P5 | current_avg_readiness: 82.0
+2026-04-10 22:36:43 | INFO | P5 | current_avg_activity: 82.71875
+2026-04-10 22:36:43 | INFO | P5 | current_avg_activecals: 3127.6769230769232
+2026-04-10 22:36:43 | INFO | P5 | satisfaction_mean_difference: 0.2
+2026-04-10 22:36:43 | INFO | P5 | health_mean_difference: 0.43
+2026-04-10 22:36:43 | INFO | P5 | sleep_mean_difference: 0.22
+2026-04-10 22:36:43 | INFO | P5 | hr_mean_difference: -0.75
+2026-04-10 22:36:43 | INFO | P5 | hrv_mean_difference: -1.9
+2026-04-10 22:36:43 | INFO | P5 | readiness_mean_difference: 2.42
+2026-04-10 22:36:43 | INFO | P5 | activity_mean_difference: 6.42
+2026-04-10 22:36:43 | INFO | P5 | activecals_mean_difference: 66.55
+2026-04-10 22:36:43 | INFO | P5 | satisfaction_is_drifting_flag: False
+2026-04-10 22:36:43 | INFO | P5 | health_is_drifting_flag: False
+2026-04-10 22:36:43 | INFO | P5 | sleep_is_drifting_flag: False
+2026-04-10 22:36:43 | INFO | P5 | hr_is_drifting_flag: False
+2026-04-10 22:36:43 | INFO | P5 | hrv_is_drifting_flag: False
+2026-04-10 22:36:43 | INFO | P5 | readiness_is_drifting_flag: False
+2026-04-10 22:36:43 | INFO | P5 | activity_is_drifting_flag: True
+2026-04-10 22:36:43 | INFO | P5 | activecals_is_drifting_flag: False
+2026-04-10 22:36:43 | INFO | P5 | Wrote long summary file: /Users/aaron/Documents/Git_Repos/GradSchool/44630/cintel-05-drift-detection/artifacts/drift_summary_long_gillespie.csv
+2026-04-10 22:36:43 | INFO | P5 | ========================
+2026-04-10 22:36:43 | INFO | P5 | Pipeline executed successfully!
+2026-04-10 22:36:43 | INFO | P5 | ========================
+2026-04-10 22:36:43 | INFO | P5 | END main()
+2026-04-10 22:40:33 | INFO | P5 | === RUN START ===
+2026-04-10 22:40:33 | INFO | P5 | project=CINTEL
+2026-04-10 22:40:33 | INFO | P5 | repo_dir=cintel-05-drift-detection
+2026-04-10 22:40:33 | INFO | P5 | python=3.14.3
+2026-04-10 22:40:33 | INFO | P5 | os=Darwin 25.3.0
+2026-04-10 22:40:33 | INFO | P5 | shell=zsh
+2026-04-10 22:40:33 | INFO | P5 | cwd=.
+2026-04-10 22:40:33 | INFO | P5 | github_actions=False
+2026-04-10 22:40:33 | INFO | P5 | ========================
+2026-04-10 22:40:33 | INFO | P5 | START main()
+2026-04-10 22:40:33 | INFO | P5 | ========================
+2026-04-10 22:40:33 | INFO | P5 | ROOT_DIR = .
+2026-04-10 22:40:33 | INFO | P5 | REFERENCE_FILE = data/reference_metrics_gillespie.csv
+2026-04-10 22:40:33 | INFO | P5 | CURRENT_FILE = data/current_metrics_gillespie.csv
+2026-04-10 22:40:33 | INFO | P5 | OUTPUT_FILE = artifacts/drift_summary_gillespie.csv
+2026-04-10 22:40:33 | INFO | P5 | ARTIFACTS_DIR = artifacts
+2026-04-10 22:40:33 | INFO | P5 | Loaded 261 reference records
+2026-04-10 22:40:33 | INFO | P5 | Loaded 65 current records
+2026-04-10 22:40:33 | INFO | P5 | Calculated summary differences and drift flags
+2026-04-10 22:40:33 | INFO | P5 | Wrote drift summary file: /Users/aaron/Documents/Git_Repos/GradSchool/44630/cintel-05-drift-detection/artifacts/drift_summary_gillespie.csv
+2026-04-10 22:40:33 | INFO | P5 | Drift summary dataframe:
+2026-04-10 22:40:33 | INFO | P5 | shape: (1, 36)
+┌─────────────────────────┬──────────────────────┬──────────────────┬───────────────────┬───┬─────────────────────────┬─────────────────────────┬────────────────────────┬─────────────────────────┐
+│ reference_avg_satisfact ┆ reference_avg_health ┆ reference_avg_hr ┆ reference_avg_hrv ┆ … ┆ readiness_is_drifting_f ┆ activity_is_drifting_fl ┆ sleep_is_drifting_flag ┆ activecals_is_drifting_ │
+│ ion                     ┆ ---                  ┆ ---              ┆ ---               ┆   ┆ lag                     ┆ ag                      ┆ ---                    ┆ flag                    │
+│ ---                     ┆ f64                  ┆ f64              ┆ f64               ┆   ┆ ---                     ┆ ---                     ┆ bool                   ┆ ---                     │
+│ f64                     ┆                      ┆                  ┆                   ┆   ┆ bool                    ┆ bool                    ┆                        ┆ bool                    │
+╞═════════════════════════╪══════════════════════╪══════════════════╪═══════════════════╪═══╪═════════════════════════╪═════════════════════════╪════════════════════════╪═════════════════════════╡
+│ 5.921456                ┆ 8.981226             ┆ 54.369231        ┆ 32.542308         ┆ … ┆ false                   ┆ true                    ┆ false                  ┆ false                   │
+└─────────────────────────┴──────────────────────┴──────────────────┴───────────────────┴───┴─────────────────────────┴─────────────────────────┴────────────────────────┴─────────────────────────┘
+2026-04-10 22:40:33 | INFO | P5 | Let's make that a bit nicer to read...
+2026-04-10 22:40:33 | INFO | P5 | All remaining steps are about creating a nicer display.
+2026-04-10 22:40:33 | INFO | P5 | ========================
+2026-04-10 22:40:33 | INFO | P5 | Drift Detection Process: 
+2026-04-10 22:40:33 | INFO | P5 | ========================
+2026-04-10 22:40:33 | INFO | P5 | 1. Summarize each period with means.
+2026-04-10 22:40:33 | INFO | P5 | 2. Compute difference of means.
+2026-04-10 22:40:33 | INFO | P5 | 3. Flag drift if absolute difference of means exceeds a threshold.
+2026-04-10 22:40:33 | INFO | P5 | ========================
+2026-04-10 22:40:33 | INFO | P5 | Drift summary (one field per line):
+2026-04-10 22:40:33 | INFO | P5 | reference_avg_satisfaction: 5.921455938697318
+2026-04-10 22:40:33 | INFO | P5 | reference_avg_health: 8.981226053639848
+2026-04-10 22:40:33 | INFO | P5 | reference_avg_hr: 54.36923076923077
+2026-04-10 22:40:33 | INFO | P5 | reference_avg_hrv: 32.542307692307695
+2026-04-10 22:40:33 | INFO | P5 | reference_avg_readiness: 79.57692307692308
+2026-04-10 22:40:33 | INFO | P5 | reference_avg_activity: 76.29615384615384
+2026-04-10 22:40:33 | INFO | P5 | reference_avg_sleep: 80.92692307692307
+2026-04-10 22:40:33 | INFO | P5 | reference_avg_sleepduration: 7.864615384615385
+2026-04-10 22:40:33 | INFO | P5 | reference_avg_activecals: 3061.1264367816093
+2026-04-10 22:40:33 | INFO | P5 | current_avg_satisfaction: 6.1230769230769235
+2026-04-10 22:40:33 | INFO | P5 | current_avg_health: 9.409230769230767
+2026-04-10 22:40:33 | INFO | P5 | current_avg_sleepduration: 8.082923076923079
+2026-04-10 22:40:33 | INFO | P5 | current_avg_hr: 53.61538461538461
+2026-04-10 22:40:33 | INFO | P5 | current_avg_hrv: 30.646153846153847
+2026-04-10 22:40:33 | INFO | P5 | current_avg_readiness: 82.0
+2026-04-10 22:40:33 | INFO | P5 | current_avg_activity: 82.71875
+2026-04-10 22:40:33 | INFO | P5 | current_avg_sleep: 80.84615384615384
+2026-04-10 22:40:33 | INFO | P5 | current_avg_activecals: 3127.6769230769232
+2026-04-10 22:40:33 | INFO | P5 | satisfaction_mean_difference: 0.2
+2026-04-10 22:40:33 | INFO | P5 | health_mean_difference: 0.43
+2026-04-10 22:40:33 | INFO | P5 | sleepduration_mean_difference: 0.22
+2026-04-10 22:40:33 | INFO | P5 | hr_mean_difference: -0.75
+2026-04-10 22:40:33 | INFO | P5 | hrv_mean_difference: -1.9
+2026-04-10 22:40:33 | INFO | P5 | readiness_mean_difference: 2.42
+2026-04-10 22:40:33 | INFO | P5 | activity_mean_difference: 6.42
+2026-04-10 22:40:33 | INFO | P5 | sleep_mean_difference: -0.08
+2026-04-10 22:40:33 | INFO | P5 | activecals_mean_difference: 66.55
+2026-04-10 22:40:33 | INFO | P5 | satisfaction_is_drifting_flag: False
+2026-04-10 22:40:33 | INFO | P5 | health_is_drifting_flag: False
+2026-04-10 22:40:33 | INFO | P5 | sleepduration_is_drifting_flag: False
+2026-04-10 22:40:33 | INFO | P5 | hr_is_drifting_flag: False
+2026-04-10 22:40:33 | INFO | P5 | hrv_is_drifting_flag: False
+2026-04-10 22:40:33 | INFO | P5 | readiness_is_drifting_flag: False
+2026-04-10 22:40:33 | INFO | P5 | activity_is_drifting_flag: True
+2026-04-10 22:40:33 | INFO | P5 | sleep_is_drifting_flag: False
+2026-04-10 22:40:33 | INFO | P5 | activecals_is_drifting_flag: False
+2026-04-10 22:40:33 | INFO | P5 | Wrote long summary file: /Users/aaron/Documents/Git_Repos/GradSchool/44630/cintel-05-drift-detection/artifacts/drift_summary_long_gillespie.csv
+2026-04-10 22:40:33 | INFO | P5 | ========================
+2026-04-10 22:40:33 | INFO | P5 | Pipeline executed successfully!
+2026-04-10 22:40:33 | INFO | P5 | ========================
+2026-04-10 22:40:33 | INFO | P5 | END main()
+2026-04-10 22:44:07 | INFO | P5 | === RUN START ===
+2026-04-10 22:44:07 | INFO | P5 | project=CINTEL
+2026-04-10 22:44:07 | INFO | P5 | repo_dir=cintel-05-drift-detection
+2026-04-10 22:44:07 | INFO | P5 | python=3.14.3
+2026-04-10 22:44:07 | INFO | P5 | os=Darwin 25.3.0
+2026-04-10 22:44:07 | INFO | P5 | shell=zsh
+2026-04-10 22:44:07 | INFO | P5 | cwd=.
+2026-04-10 22:44:07 | INFO | P5 | github_actions=False
+2026-04-10 22:44:07 | INFO | P5 | ========================
+2026-04-10 22:44:07 | INFO | P5 | START main()
+2026-04-10 22:44:07 | INFO | P5 | ========================
+2026-04-10 22:44:07 | INFO | P5 | ROOT_DIR = .
+2026-04-10 22:44:07 | INFO | P5 | REFERENCE_FILE = data/reference_metrics_case.csv
+2026-04-10 22:44:07 | INFO | P5 | CURRENT_FILE = data/current_metrics_case.csv
+2026-04-10 22:44:07 | INFO | P5 | OUTPUT_FILE = artifacts/drift_summary_case.csv
+2026-04-10 22:44:07 | INFO | P5 | ARTIFACTS_DIR = artifacts
+2026-04-10 22:44:07 | INFO | P5 | Loaded 10 reference records
+2026-04-10 22:44:07 | INFO | P5 | Loaded 10 current records
+2026-04-10 22:44:07 | INFO | P5 | Calculated summary differences and drift flags
+2026-04-10 22:44:07 | INFO | P5 | Wrote drift summary file: /Users/aaron/Documents/Git_Repos/GradSchool/44630/cintel-05-drift-detection/artifacts/drift_summary_case.csv
+2026-04-10 22:44:07 | INFO | P5 | Drift summary dataframe:
+2026-04-10 22:44:07 | INFO | P5 | shape: (1, 12)
+┌────────────────────────┬──────────────────────┬───────────────────────┬──────────────────────┬───┬───────────────────────┬───────────────────────┬───────────────────────┬───────────────────────┐
+│ reference_avg_requests ┆ reference_avg_errors ┆ reference_avg_latency ┆ current_avg_requests ┆ … ┆ latency_mean_differen ┆ requests_is_drifting_ ┆ errors_is_drifting_fl ┆ latency_is_drifting_f │
+│ ---                    ┆ ---                  ┆ _ms                   ┆ ---                  ┆   ┆ ce_ms                 ┆ flag                  ┆ ag                    ┆ lag                   │
+│ f64                    ┆ f64                  ┆ ---                   ┆ f64                  ┆   ┆ ---                   ┆ ---                   ┆ ---                   ┆ ---                   │
+│                        ┆                      ┆ f64                   ┆                      ┆   ┆ f64                   ┆ bool                  ┆ bool                  ┆ bool                  │
+╞════════════════════════╪══════════════════════╪═══════════════════════╪══════════════════════╪═══╪═══════════════════════╪═══════════════════════╪═══════════════════════╪═══════════════════════╡
+│ 128.3                  ┆ 2.3                  ┆ 3835.0                ┆ 164.5                ┆ … ┆ 1835.0                ┆ false                 ┆ true                  ┆ true                  │
+└────────────────────────┴──────────────────────┴───────────────────────┴──────────────────────┴───┴───────────────────────┴───────────────────────┴───────────────────────┴───────────────────────┘
+2026-04-10 22:44:07 | INFO | P5 | Let's make that a bit nicer to read...
+2026-04-10 22:44:07 | INFO | P5 | All remaining steps are about creating a nicer display.
+2026-04-10 22:44:07 | INFO | P5 | ========================
+2026-04-10 22:44:07 | INFO | P5 | Drift Detection Process: 
+2026-04-10 22:44:07 | INFO | P5 | ========================
+2026-04-10 22:44:07 | INFO | P5 | 1. Summarize each period with means.
+2026-04-10 22:44:07 | INFO | P5 | 2. Compute difference of means.
+2026-04-10 22:44:07 | INFO | P5 | 3. Flag drift if absolute difference of means exceeds a threshold.
+2026-04-10 22:44:07 | INFO | P5 | ========================
+2026-04-10 22:44:07 | INFO | P5 | Drift summary (one field per line):
+2026-04-10 22:44:07 | INFO | P5 | reference_avg_requests: 128.3
+2026-04-10 22:44:07 | INFO | P5 | reference_avg_errors: 2.3
+2026-04-10 22:44:07 | INFO | P5 | reference_avg_latency_ms: 3835.0
+2026-04-10 22:44:07 | INFO | P5 | current_avg_requests: 164.5
+2026-04-10 22:44:07 | INFO | P5 | current_avg_errors: 6.3
+2026-04-10 22:44:07 | INFO | P5 | current_avg_latency_ms: 5670.0
+2026-04-10 22:44:07 | INFO | P5 | requests_mean_difference: 36.2
+2026-04-10 22:44:07 | INFO | P5 | errors_mean_difference: 4.0
+2026-04-10 22:44:07 | INFO | P5 | latency_mean_difference_ms: 1835.0
+2026-04-10 22:44:07 | INFO | P5 | requests_is_drifting_flag: False
+2026-04-10 22:44:07 | INFO | P5 | errors_is_drifting_flag: True
+2026-04-10 22:44:07 | INFO | P5 | latency_is_drifting_flag: True
+2026-04-10 22:44:07 | INFO | P5 | Wrote long summary file: /Users/aaron/Documents/Git_Repos/GradSchool/44630/cintel-05-drift-detection/artifacts/drift_summary_long_case.csv
+2026-04-10 22:44:07 | INFO | P5 | ========================
+2026-04-10 22:44:07 | INFO | P5 | Pipeline executed successfully!
+2026-04-10 22:44:07 | INFO | P5 | ========================
+2026-04-10 22:44:07 | INFO | P5 | END main()
+2026-04-10 22:44:21 | INFO | P5 | === RUN START ===
+2026-04-10 22:44:21 | INFO | P5 | project=CINTEL
+2026-04-10 22:44:21 | INFO | P5 | repo_dir=cintel-05-drift-detection
+2026-04-10 22:44:21 | INFO | P5 | python=3.14.3
+2026-04-10 22:44:21 | INFO | P5 | os=Darwin 25.3.0
+2026-04-10 22:44:21 | INFO | P5 | shell=zsh
+2026-04-10 22:44:21 | INFO | P5 | cwd=.
+2026-04-10 22:44:21 | INFO | P5 | github_actions=False
+2026-04-10 22:44:21 | INFO | P5 | ========================
+2026-04-10 22:44:21 | INFO | P5 | START main()
+2026-04-10 22:44:21 | INFO | P5 | ========================
+2026-04-10 22:44:21 | INFO | P5 | ROOT_DIR = .
+2026-04-10 22:44:21 | INFO | P5 | REFERENCE_FILE = data/reference_metrics_case.csv
+2026-04-10 22:44:21 | INFO | P5 | CURRENT_FILE = data/current_metrics_case.csv
+2026-04-10 22:44:21 | INFO | P5 | OUTPUT_FILE = artifacts/drift_summary_case.csv
+2026-04-10 22:44:21 | INFO | P5 | ARTIFACTS_DIR = artifacts
+2026-04-10 22:44:21 | INFO | P5 | Loaded 10 reference records
+2026-04-10 22:44:21 | INFO | P5 | Loaded 10 current records
+2026-04-10 22:44:21 | INFO | P5 | Calculated summary differences and drift flags
+2026-04-10 22:44:21 | INFO | P5 | Wrote drift summary file: /Users/aaron/Documents/Git_Repos/GradSchool/44630/cintel-05-drift-detection/artifacts/drift_summary_case.csv
+2026-04-10 22:44:21 | INFO | P5 | Drift summary dataframe:
+2026-04-10 22:44:21 | INFO | P5 | shape: (1, 12)
+┌────────────────────────┬──────────────────────┬───────────────────────┬──────────────────────┬───┬───────────────────────┬───────────────────────┬───────────────────────┬───────────────────────┐
+│ reference_avg_requests ┆ reference_avg_errors ┆ reference_avg_latency ┆ current_avg_requests ┆ … ┆ latency_mean_differen ┆ requests_is_drifting_ ┆ errors_is_drifting_fl ┆ latency_is_drifting_f │
+│ ---                    ┆ ---                  ┆ _ms                   ┆ ---                  ┆   ┆ ce_ms                 ┆ flag                  ┆ ag                    ┆ lag                   │
+│ f64                    ┆ f64                  ┆ ---                   ┆ f64                  ┆   ┆ ---                   ┆ ---                   ┆ ---                   ┆ ---                   │
+│                        ┆                      ┆ f64                   ┆                      ┆   ┆ f64                   ┆ bool                  ┆ bool                  ┆ bool                  │
+╞════════════════════════╪══════════════════════╪═══════════════════════╪══════════════════════╪═══╪═══════════════════════╪═══════════════════════╪═══════════════════════╪═══════════════════════╡
+│ 128.3                  ┆ 2.3                  ┆ 3835.0                ┆ 164.5                ┆ … ┆ 1835.0                ┆ true                  ┆ true                  ┆ true                  │
+└────────────────────────┴──────────────────────┴───────────────────────┴──────────────────────┴───┴───────────────────────┴───────────────────────┴───────────────────────┴───────────────────────┘
+2026-04-10 22:44:21 | INFO | P5 | Let's make that a bit nicer to read...
+2026-04-10 22:44:21 | INFO | P5 | All remaining steps are about creating a nicer display.
+2026-04-10 22:44:21 | INFO | P5 | ========================
+2026-04-10 22:44:21 | INFO | P5 | Drift Detection Process: 
+2026-04-10 22:44:21 | INFO | P5 | ========================
+2026-04-10 22:44:21 | INFO | P5 | 1. Summarize each period with means.
+2026-04-10 22:44:21 | INFO | P5 | 2. Compute difference of means.
+2026-04-10 22:44:21 | INFO | P5 | 3. Flag drift if absolute difference of means exceeds a threshold.
+2026-04-10 22:44:21 | INFO | P5 | ========================
+2026-04-10 22:44:21 | INFO | P5 | Drift summary (one field per line):
+2026-04-10 22:44:21 | INFO | P5 | reference_avg_requests: 128.3
+2026-04-10 22:44:21 | INFO | P5 | reference_avg_errors: 2.3
+2026-04-10 22:44:21 | INFO | P5 | reference_avg_latency_ms: 3835.0
+2026-04-10 22:44:21 | INFO | P5 | current_avg_requests: 164.5
+2026-04-10 22:44:21 | INFO | P5 | current_avg_errors: 6.3
+2026-04-10 22:44:21 | INFO | P5 | current_avg_latency_ms: 5670.0
+2026-04-10 22:44:21 | INFO | P5 | requests_mean_difference: 36.2
+2026-04-10 22:44:21 | INFO | P5 | errors_mean_difference: 4.0
+2026-04-10 22:44:21 | INFO | P5 | latency_mean_difference_ms: 1835.0
+2026-04-10 22:44:21 | INFO | P5 | requests_is_drifting_flag: True
+2026-04-10 22:44:21 | INFO | P5 | errors_is_drifting_flag: True
+2026-04-10 22:44:21 | INFO | P5 | latency_is_drifting_flag: True
+2026-04-10 22:44:21 | INFO | P5 | Wrote long summary file: /Users/aaron/Documents/Git_Repos/GradSchool/44630/cintel-05-drift-detection/artifacts/drift_summary_long_case.csv
+2026-04-10 22:44:21 | INFO | P5 | ========================
+2026-04-10 22:44:21 | INFO | P5 | Pipeline executed successfully!
+2026-04-10 22:44:21 | INFO | P5 | ========================
+2026-04-10 22:44:21 | INFO | P5 | END main()
+2026-04-10 22:46:29 | INFO | P5 | === RUN START ===
+2026-04-10 22:46:29 | INFO | P5 | project=CINTEL
+2026-04-10 22:46:29 | INFO | P5 | repo_dir=cintel-05-drift-detection
+2026-04-10 22:46:29 | INFO | P5 | python=3.14.3
+2026-04-10 22:46:29 | INFO | P5 | os=Darwin 25.3.0
+2026-04-10 22:46:29 | INFO | P5 | shell=zsh
+2026-04-10 22:46:29 | INFO | P5 | cwd=.
+2026-04-10 22:46:29 | INFO | P5 | github_actions=False
+2026-04-10 22:46:29 | INFO | P5 | ========================
+2026-04-10 22:46:29 | INFO | P5 | START main()
+2026-04-10 22:46:29 | INFO | P5 | ========================
+2026-04-10 22:46:29 | INFO | P5 | ROOT_DIR = .
+2026-04-10 22:46:29 | INFO | P5 | REFERENCE_FILE = data/reference_metrics_case.csv
+2026-04-10 22:46:29 | INFO | P5 | CURRENT_FILE = data/current_metrics_case.csv
+2026-04-10 22:46:29 | INFO | P5 | OUTPUT_FILE = artifacts/drift_summary_case.csv
+2026-04-10 22:46:29 | INFO | P5 | ARTIFACTS_DIR = artifacts
+2026-04-10 22:46:29 | INFO | P5 | Loaded 10 reference records
+2026-04-10 22:46:29 | INFO | P5 | Loaded 10 current records
+2026-04-10 22:46:29 | INFO | P5 | Calculated summary differences and drift flags
+2026-04-10 22:46:29 | INFO | P5 | Wrote drift summary file: /Users/aaron/Documents/Git_Repos/GradSchool/44630/cintel-05-drift-detection/artifacts/drift_summary_case.csv
+2026-04-10 22:46:29 | INFO | P5 | Drift summary dataframe:
+2026-04-10 22:46:29 | INFO | P5 | shape: (1, 12)
+┌────────────────────────┬──────────────────────┬───────────────────────┬──────────────────────┬───┬───────────────────────┬───────────────────────┬───────────────────────┬───────────────────────┐
+│ reference_avg_requests ┆ reference_avg_errors ┆ reference_avg_latency ┆ current_avg_requests ┆ … ┆ latency_mean_differen ┆ requests_is_drifting_ ┆ errors_is_drifting_fl ┆ latency_is_drifting_f │
+│ ---                    ┆ ---                  ┆ _ms                   ┆ ---                  ┆   ┆ ce_ms                 ┆ flag                  ┆ ag                    ┆ lag                   │
+│ f64                    ┆ f64                  ┆ ---                   ┆ f64                  ┆   ┆ ---                   ┆ ---                   ┆ ---                   ┆ ---                   │
+│                        ┆                      ┆ f64                   ┆                      ┆   ┆ f64                   ┆ bool                  ┆ bool                  ┆ bool                  │
+╞════════════════════════╪══════════════════════╪═══════════════════════╪══════════════════════╪═══╪═══════════════════════╪═══════════════════════╪═══════════════════════╪═══════════════════════╡
+│ 128.3                  ┆ 2.3                  ┆ 3835.0                ┆ 164.5                ┆ … ┆ 1835.0                ┆ true                  ┆ true                  ┆ true                  │
+└────────────────────────┴──────────────────────┴───────────────────────┴──────────────────────┴───┴───────────────────────┴───────────────────────┴───────────────────────┴───────────────────────┘
+2026-04-10 22:46:29 | INFO | P5 | Let's make that a bit nicer to read...
+2026-04-10 22:46:29 | INFO | P5 | All remaining steps are about creating a nicer display.
+2026-04-10 22:46:29 | INFO | P5 | ========================
+2026-04-10 22:46:29 | INFO | P5 | Drift Detection Process: 
+2026-04-10 22:46:29 | INFO | P5 | ========================
+2026-04-10 22:46:29 | INFO | P5 | 1. Summarize each period with means.
+2026-04-10 22:46:29 | INFO | P5 | 2. Compute difference of means.
+2026-04-10 22:46:29 | INFO | P5 | 3. Flag drift if absolute difference of means exceeds a threshold.
+2026-04-10 22:46:29 | INFO | P5 | ========================
+2026-04-10 22:46:29 | INFO | P5 | Drift summary (one field per line):
+2026-04-10 22:46:29 | INFO | P5 | reference_avg_requests: 128.3
+2026-04-10 22:46:29 | INFO | P5 | reference_avg_errors: 2.3
+2026-04-10 22:46:29 | INFO | P5 | reference_avg_latency_ms: 3835.0
+2026-04-10 22:46:29 | INFO | P5 | current_avg_requests: 164.5
+2026-04-10 22:46:29 | INFO | P5 | current_avg_errors: 6.3
+2026-04-10 22:46:29 | INFO | P5 | current_avg_latency_ms: 5670.0
+2026-04-10 22:46:29 | INFO | P5 | requests_mean_difference: 36.2
+2026-04-10 22:46:29 | INFO | P5 | errors_mean_difference: 4.0
+2026-04-10 22:46:29 | INFO | P5 | latency_mean_difference_ms: 1835.0
+2026-04-10 22:46:29 | INFO | P5 | requests_is_drifting_flag: True
+2026-04-10 22:46:29 | INFO | P5 | errors_is_drifting_flag: True
+2026-04-10 22:46:29 | INFO | P5 | latency_is_drifting_flag: True
+2026-04-10 22:46:29 | INFO | P5 | Wrote long summary file: /Users/aaron/Documents/Git_Repos/GradSchool/44630/cintel-05-drift-detection/artifacts/drift_summary_long_case.csv
+2026-04-10 22:46:29 | INFO | P5 | ========================
+2026-04-10 22:46:29 | INFO | P5 | Pipeline executed successfully!
+2026-04-10 22:46:29 | INFO | P5 | ========================
+2026-04-10 22:46:29 | INFO | P5 | END main()
+2026-04-10 22:46:32 | INFO | P5 | === RUN START ===
+2026-04-10 22:46:32 | INFO | P5 | project=CINTEL
+2026-04-10 22:46:32 | INFO | P5 | repo_dir=cintel-05-drift-detection
+2026-04-10 22:46:32 | INFO | P5 | python=3.14.3
+2026-04-10 22:46:32 | INFO | P5 | os=Darwin 25.3.0
+2026-04-10 22:46:32 | INFO | P5 | shell=zsh
+2026-04-10 22:46:32 | INFO | P5 | cwd=.
+2026-04-10 22:46:32 | INFO | P5 | github_actions=False
+2026-04-10 22:46:32 | INFO | P5 | ========================
+2026-04-10 22:46:32 | INFO | P5 | START main()
+2026-04-10 22:46:32 | INFO | P5 | ========================
+2026-04-10 22:46:32 | INFO | P5 | ROOT_DIR = .
+2026-04-10 22:46:32 | INFO | P5 | REFERENCE_FILE = data/reference_metrics_case.csv
+2026-04-10 22:46:32 | INFO | P5 | CURRENT_FILE = data/current_metrics_case.csv
+2026-04-10 22:46:32 | INFO | P5 | OUTPUT_FILE = artifacts/drift_summary_gillespie.csv
+2026-04-10 22:46:32 | INFO | P5 | ARTIFACTS_DIR = artifacts
+2026-04-10 22:46:32 | INFO | P5 | Loaded 10 reference records
+2026-04-10 22:46:32 | INFO | P5 | Loaded 10 current records
+2026-04-10 22:46:32 | INFO | P5 | Calculated summary differences and drift flags
+2026-04-10 22:46:32 | INFO | P5 | Wrote drift summary file: /Users/aaron/Documents/Git_Repos/GradSchool/44630/cintel-05-drift-detection/artifacts/drift_summary_gillespie.csv
+2026-04-10 22:46:32 | INFO | P5 | Drift summary dataframe:
+2026-04-10 22:46:32 | INFO | P5 | shape: (1, 12)
+┌────────────────────────┬──────────────────────┬───────────────────────┬──────────────────────┬───┬───────────────────────┬───────────────────────┬───────────────────────┬───────────────────────┐
+│ reference_avg_requests ┆ reference_avg_errors ┆ reference_avg_latency ┆ current_avg_requests ┆ … ┆ latency_mean_differen ┆ requests_is_drifting_ ┆ errors_is_drifting_fl ┆ latency_is_drifting_f │
+│ ---                    ┆ ---                  ┆ _ms                   ┆ ---                  ┆   ┆ ce_ms                 ┆ flag                  ┆ ag                    ┆ lag                   │
+│ f64                    ┆ f64                  ┆ ---                   ┆ f64                  ┆   ┆ ---                   ┆ ---                   ┆ ---                   ┆ ---                   │
+│                        ┆                      ┆ f64                   ┆                      ┆   ┆ f64                   ┆ bool                  ┆ bool                  ┆ bool                  │
+╞════════════════════════╪══════════════════════╪═══════════════════════╪══════════════════════╪═══╪═══════════════════════╪═══════════════════════╪═══════════════════════╪═══════════════════════╡
+│ 128.3                  ┆ 2.3                  ┆ 3835.0                ┆ 164.5                ┆ … ┆ 1835.0                ┆ false                 ┆ true                  ┆ true                  │
+└────────────────────────┴──────────────────────┴───────────────────────┴──────────────────────┴───┴───────────────────────┴───────────────────────┴───────────────────────┴───────────────────────┘
+2026-04-10 22:46:32 | INFO | P5 | Let's make that a bit nicer to read...
+2026-04-10 22:46:32 | INFO | P5 | All remaining steps are about creating a nicer display.
+2026-04-10 22:46:32 | INFO | P5 | ========================
+2026-04-10 22:46:32 | INFO | P5 | Drift Detection Process: 
+2026-04-10 22:46:32 | INFO | P5 | ========================
+2026-04-10 22:46:32 | INFO | P5 | 1. Summarize each period with means.
+2026-04-10 22:46:32 | INFO | P5 | 2. Compute difference of means.
+2026-04-10 22:46:32 | INFO | P5 | 3. Flag drift if absolute difference of means exceeds a threshold.
+2026-04-10 22:46:32 | INFO | P5 | ========================
+2026-04-10 22:46:32 | INFO | P5 | Drift summary (one field per line):
+2026-04-10 22:46:32 | INFO | P5 | reference_avg_requests: 128.3
+2026-04-10 22:46:32 | INFO | P5 | reference_avg_errors: 2.3
+2026-04-10 22:46:32 | INFO | P5 | reference_avg_latency_ms: 3835.0
+2026-04-10 22:46:32 | INFO | P5 | current_avg_requests: 164.5
+2026-04-10 22:46:32 | INFO | P5 | current_avg_errors: 6.3
+2026-04-10 22:46:32 | INFO | P5 | current_avg_latency_ms: 5670.0
+2026-04-10 22:46:32 | INFO | P5 | requests_mean_difference: 36.2
+2026-04-10 22:46:32 | INFO | P5 | errors_mean_difference: 4.0
+2026-04-10 22:46:32 | INFO | P5 | latency_mean_difference_ms: 1835.0
+2026-04-10 22:46:32 | INFO | P5 | requests_is_drifting_flag: False
+2026-04-10 22:46:32 | INFO | P5 | errors_is_drifting_flag: True
+2026-04-10 22:46:32 | INFO | P5 | latency_is_drifting_flag: True
+2026-04-10 22:46:32 | INFO | P5 | Wrote long summary file: /Users/aaron/Documents/Git_Repos/GradSchool/44630/cintel-05-drift-detection/artifacts/drift_summary_long_gillespie.csv
+2026-04-10 22:46:32 | INFO | P5 | ========================
+2026-04-10 22:46:32 | INFO | P5 | Pipeline executed successfully!
+2026-04-10 22:46:32 | INFO | P5 | ========================
+2026-04-10 22:46:32 | INFO | P5 | END main()
+2026-04-10 22:46:54 | INFO | P5 | === RUN START ===
+2026-04-10 22:46:54 | INFO | P5 | project=CINTEL
+2026-04-10 22:46:54 | INFO | P5 | repo_dir=cintel-05-drift-detection
+2026-04-10 22:46:54 | INFO | P5 | python=3.14.3
+2026-04-10 22:46:54 | INFO | P5 | os=Darwin 25.3.0
+2026-04-10 22:46:54 | INFO | P5 | shell=zsh
+2026-04-10 22:46:54 | INFO | P5 | cwd=.
+2026-04-10 22:46:54 | INFO | P5 | github_actions=False
+2026-04-10 22:46:54 | INFO | P5 | ========================
+2026-04-10 22:46:54 | INFO | P5 | START main()
+2026-04-10 22:46:54 | INFO | P5 | ========================
+2026-04-10 22:46:54 | INFO | P5 | ROOT_DIR = .
+2026-04-10 22:46:54 | INFO | P5 | REFERENCE_FILE = data/reference_metrics_data_journal.csv
+2026-04-10 22:46:54 | INFO | P5 | CURRENT_FILE = data/current_metrics_data_journal.csv
+2026-04-10 22:46:54 | INFO | P5 | OUTPUT_FILE = artifacts/drift_summary_data_journal.csv
+2026-04-10 22:46:54 | INFO | P5 | ARTIFACTS_DIR = artifacts
+2026-04-10 22:46:54 | INFO | P5 | Loaded 261 reference records
+2026-04-10 22:46:54 | INFO | P5 | Loaded 65 current records
+2026-04-10 22:46:54 | INFO | P5 | Calculated summary differences and drift flags
+2026-04-10 22:46:54 | INFO | P5 | Wrote drift summary file: /Users/aaron/Documents/Git_Repos/GradSchool/44630/cintel-05-drift-detection/artifacts/drift_summary_data_journal.csv
+2026-04-10 22:46:54 | INFO | P5 | Drift summary dataframe:
+2026-04-10 22:46:54 | INFO | P5 | shape: (1, 36)
+┌─────────────────────────┬──────────────────────┬──────────────────┬───────────────────┬───┬─────────────────────────┬─────────────────────────┬────────────────────────┬─────────────────────────┐
+│ reference_avg_satisfact ┆ reference_avg_health ┆ reference_avg_hr ┆ reference_avg_hrv ┆ … ┆ readiness_is_drifting_f ┆ activity_is_drifting_fl ┆ sleep_is_drifting_flag ┆ activecals_is_drifting_ │
+│ ion                     ┆ ---                  ┆ ---              ┆ ---               ┆   ┆ lag                     ┆ ag                      ┆ ---                    ┆ flag                    │
+│ ---                     ┆ f64                  ┆ f64              ┆ f64               ┆   ┆ ---                     ┆ ---                     ┆ bool                   ┆ ---                     │
+│ f64                     ┆                      ┆                  ┆                   ┆   ┆ bool                    ┆ bool                    ┆                        ┆ bool                    │
+╞═════════════════════════╪══════════════════════╪══════════════════╪═══════════════════╪═══╪═════════════════════════╪═════════════════════════╪════════════════════════╪═════════════════════════╡
+│ 5.921456                ┆ 8.981226             ┆ 54.369231        ┆ 32.542308         ┆ … ┆ false                   ┆ true                    ┆ false                  ┆ false                   │
+└─────────────────────────┴──────────────────────┴──────────────────┴───────────────────┴───┴─────────────────────────┴─────────────────────────┴────────────────────────┴─────────────────────────┘
+2026-04-10 22:46:54 | INFO | P5 | Let's make that a bit nicer to read...
+2026-04-10 22:46:54 | INFO | P5 | All remaining steps are about creating a nicer display.
+2026-04-10 22:46:54 | INFO | P5 | ========================
+2026-04-10 22:46:54 | INFO | P5 | Drift Detection Process: 
+2026-04-10 22:46:54 | INFO | P5 | ========================
+2026-04-10 22:46:54 | INFO | P5 | 1. Summarize each period with means.
+2026-04-10 22:46:54 | INFO | P5 | 2. Compute difference of means.
+2026-04-10 22:46:54 | INFO | P5 | 3. Flag drift if absolute difference of means exceeds a threshold.
+2026-04-10 22:46:54 | INFO | P5 | ========================
+2026-04-10 22:46:54 | INFO | P5 | Drift summary (one field per line):
+2026-04-10 22:46:54 | INFO | P5 | reference_avg_satisfaction: 5.921455938697318
+2026-04-10 22:46:54 | INFO | P5 | reference_avg_health: 8.981226053639848
+2026-04-10 22:46:54 | INFO | P5 | reference_avg_hr: 54.36923076923077
+2026-04-10 22:46:54 | INFO | P5 | reference_avg_hrv: 32.542307692307695
+2026-04-10 22:46:54 | INFO | P5 | reference_avg_readiness: 79.57692307692308
+2026-04-10 22:46:54 | INFO | P5 | reference_avg_activity: 76.29615384615384
+2026-04-10 22:46:54 | INFO | P5 | reference_avg_sleep: 80.92692307692307
+2026-04-10 22:46:54 | INFO | P5 | reference_avg_sleepduration: 7.864615384615385
+2026-04-10 22:46:54 | INFO | P5 | reference_avg_activecals: 3061.1264367816093
+2026-04-10 22:46:54 | INFO | P5 | current_avg_satisfaction: 6.1230769230769235
+2026-04-10 22:46:54 | INFO | P5 | current_avg_health: 9.409230769230767
+2026-04-10 22:46:54 | INFO | P5 | current_avg_sleepduration: 8.082923076923079
+2026-04-10 22:46:54 | INFO | P5 | current_avg_hr: 53.61538461538461
+2026-04-10 22:46:54 | INFO | P5 | current_avg_hrv: 30.646153846153847
+2026-04-10 22:46:54 | INFO | P5 | current_avg_readiness: 82.0
+2026-04-10 22:46:54 | INFO | P5 | current_avg_activity: 82.71875
+2026-04-10 22:46:54 | INFO | P5 | current_avg_sleep: 80.84615384615384
+2026-04-10 22:46:54 | INFO | P5 | current_avg_activecals: 3127.6769230769232
+2026-04-10 22:46:54 | INFO | P5 | satisfaction_mean_difference: 0.2
+2026-04-10 22:46:54 | INFO | P5 | health_mean_difference: 0.43
+2026-04-10 22:46:54 | INFO | P5 | sleepduration_mean_difference: 0.22
+2026-04-10 22:46:54 | INFO | P5 | hr_mean_difference: -0.75
+2026-04-10 22:46:54 | INFO | P5 | hrv_mean_difference: -1.9
+2026-04-10 22:46:54 | INFO | P5 | readiness_mean_difference: 2.42
+2026-04-10 22:46:54 | INFO | P5 | activity_mean_difference: 6.42
+2026-04-10 22:46:54 | INFO | P5 | sleep_mean_difference: -0.08
+2026-04-10 22:46:54 | INFO | P5 | activecals_mean_difference: 66.55
+2026-04-10 22:46:54 | INFO | P5 | satisfaction_is_drifting_flag: False
+2026-04-10 22:46:54 | INFO | P5 | health_is_drifting_flag: False
+2026-04-10 22:46:54 | INFO | P5 | sleepduration_is_drifting_flag: False
+2026-04-10 22:46:54 | INFO | P5 | hr_is_drifting_flag: False
+2026-04-10 22:46:54 | INFO | P5 | hrv_is_drifting_flag: False
+2026-04-10 22:46:54 | INFO | P5 | readiness_is_drifting_flag: False
+2026-04-10 22:46:54 | INFO | P5 | activity_is_drifting_flag: True
+2026-04-10 22:46:54 | INFO | P5 | sleep_is_drifting_flag: False
+2026-04-10 22:46:54 | INFO | P5 | activecals_is_drifting_flag: False
+2026-04-10 22:46:54 | INFO | P5 | Wrote long summary file: /Users/aaron/Documents/Git_Repos/GradSchool/44630/cintel-05-drift-detection/artifacts/drift_summary_long_data_journal.csv
+2026-04-10 22:46:54 | INFO | P5 | ========================
+2026-04-10 22:46:54 | INFO | P5 | Pipeline executed successfully!
+2026-04-10 22:46:54 | INFO | P5 | ========================
+2026-04-10 22:46:54 | INFO | P5 | END main()
